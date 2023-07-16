@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-WORKDIR /home/node/bend
+WORKDIR /etc/bend
 
 EXPOSE 3000
 
