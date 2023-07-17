@@ -9,6 +9,8 @@ HEALTHCHECK --interval=30s --retries=3 \
 
 COPY package.json package-lock.json ./
 
+RUN npm cache clean --force
+
 RUN npm install
 
 CMD [ "npm", "run", "start" ]
