@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-WORKDIR /home/ubuntu/bend
+WORKDIR /home/node/app
 
 EXPOSE 3000
 
@@ -9,6 +9,9 @@ HEALTHCHECK --interval=30s --retries=3 \
 
 COPY package.json package-lock.json ./
 
-RUN npm install
+RUN npm install \
+    && npm cache clean --force  
+
+COPY . .
 
 CMD [ "npm", "run", "start" ]
