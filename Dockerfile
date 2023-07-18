@@ -10,7 +10,7 @@ HEALTHCHECK --interval=30s --retries=3 \
 COPY package.json package-lock.json ./
 
 # Instala as dependências do aplicativo
-RUN npm install && npm cache clean --force
+RUN npm install -g npm@9.8.0 && npm cache clean --force
 RUN npm audit fix --force
 
 COPY . .
