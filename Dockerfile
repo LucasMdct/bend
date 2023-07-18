@@ -8,6 +8,7 @@ HEALTHCHECK --interval=30s --retries=3 \
     CMD wget -q --spider http://127.0.0.1:3000/healthcheck || exit 1
 
 COPY package.json package-lock.json ./
+RUN RUN npm install -g npm@9.8.0
 
 # Instala as dependências do aplicativo
 RUN npm install && npm cache clean --force
